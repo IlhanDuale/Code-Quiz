@@ -1,21 +1,3 @@
-# Code-Quiz
-
-<img 
-Links to an external site.
-
-# Description
-
-
-## Installation
-
-N/A
-
-## Usage
-
-N/A
-
-## Credits
-=======
 # Module 6 Challenge Web APIs: Code Quiz
 
 ## Your Task
