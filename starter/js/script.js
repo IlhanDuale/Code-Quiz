@@ -17,17 +17,20 @@ document.addEventListener('DOMContentLoaded', function() {
     var score = 0;
     var initialTime = 50;
 
+    // Set the initial time in the timer element
+    timerEl.textContent = 'Time: ' + initialTime + ' seconds';
+
     startButton.addEventListener("click", function() {
         startScreen.classList.add("hide");
         startQuiz();
     });
 
     function startQuiz() {
+        // Update the time display in the setInterval callback
         timerInterval = setInterval(function() {
             time--;
             timerEl.textContent = 'Time: ' + time + ' seconds';
 
-            time = initialTime;
             if (time <= 0 || questionCount >= questions.length) {
                 endQuiz();
             }
@@ -84,6 +87,16 @@ document.addEventListener('DOMContentLoaded', function() {
         endScreen.classList.remove('hide');
         finalScore.textContent = score;
     }
+
+    // Update the time display in the setInterval callback
+    timerInterval = setInterval(function() {
+        time--;
+        timerEl.textContent = 'Time: ' + time + ' seconds';
+
+        if (time <= 0 || questionCount >= questions.length) {
+            endQuiz();
+        }
+    }, 1000);
 
     submitScoreButton.addEventListener('click', function() {
         var initials = initialsInput.value.trim();
