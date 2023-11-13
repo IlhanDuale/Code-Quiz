@@ -1,4 +1,3 @@
-debugger;
 document.addEventListener('DOMContentLoaded', function() {
     var startButton = document.querySelector("#start");
     var startScreen = document.querySelector("#start-screen");
@@ -16,6 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var time = 50; // time limit
     var timerInterval;
     var score = 0;
+    var initialTime = 50;
 
     startButton.addEventListener("click", function() {
         startScreen.classList.add("hide");
@@ -27,6 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
             time--;
             timerEl.textContent = 'Time: ' + time + ' seconds';
 
+            time = initialTime;
             if (time <= 0 || questionCount >= questions.length) {
                 endQuiz();
             }
