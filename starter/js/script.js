@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var finalScore = document.querySelector("#final-score");
 
     var questionCount = 0;
-    var time = 60; // time limit
+    var time = 50; // time limit
     var timerInterval;
     var score = 0;
 
