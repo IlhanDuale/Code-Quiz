@@ -1,10 +1,11 @@
+debugger;
 document.addEventListener('DOMContentLoaded', function() {
     var startButton = document.querySelector("#start");
     var startScreen = document.querySelector("#start-screen");
     var questionsEl = document.querySelector('#questions');
     var questionTitle = document.querySelector('#question-title');
     var choices = document.querySelector('#choices');
-    var timerEl = document.querySelector('#time'); // Update to match the correct ID
+    var timerEl = document.querySelector('#time');
     var feedback = document.querySelector("#feedback");
     var initialsInput = document.querySelector("#initials");
     var submitScoreButton = document.querySelector("#submit");
@@ -38,17 +39,23 @@ document.addEventListener('DOMContentLoaded', function() {
         questionTitle.innerHTML = '';
         choices.innerHTML = '';
         feedback.textContent = '';
-        questionTitle.textContent = questions[questionCount].title;
 
-        questions[questionCount].choices.forEach(function(choice) {
-            var button = document.createElement('button');
-            button.textContent = choice;
-            button.value = choice;
-            button.addEventListener('click', checkAnswer);
-            choices.append(button);
-        });
+        if (questions && questions[questionCount] && questions[questionCount].choices) {
+            questionTitle.textContent = questions[questionCount].title;
 
-        questionsEl.classList.remove('hide');
+            questions[questionCount].choices.forEach(function(choice) {
+                var button = document.createElement('button');
+                button.textContent = choice;
+                button.value = choice;
+                button.addEventListener('click', checkAnswer);
+                choices.append(button);
+            });
+
+            questionsEl.classList.remove('hide');
+        } else {
+            console.error("Invalid question structure or questionCount out of bounds");
+            endQuiz();
+        }
     }
 
     function checkAnswer(event) {
