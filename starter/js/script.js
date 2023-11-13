@@ -16,7 +16,7 @@ var timerInterval;
 
 startButton.addEventListener("click", function() {
     startScreen.classList.add("hide")
-    displayQuestion()
+    startQuiz(); //displayQuestion()
 })
 
 function startQuiz() {
@@ -33,8 +33,11 @@ function startQuiz() {
 }
 
 function displayQuestion() {
-    questionTitle.innerHTML = ''
-    choices.innerHTML = ''
+    questionTitle.innerHTML = '';
+    choices.innerHTML = '';
+    feedback.textContent = '';
+    questionTitle.textContent = questions[questionCount].title;
+
     questionTitle.textContent = questions[questionCount].title
     questions[questionCount].choices.forEach(function(choice) {
         var button = document.createElement('button')
