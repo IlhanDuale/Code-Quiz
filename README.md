@@ -1,4 +1,5 @@
 # Code-Quiz
+![image](https://github.com/IlhanDuale/Code-Quiz/assets/88343208/d7f874ea-3ebd-4cbb-883e-e830bb793157)
 
 
 # Description
