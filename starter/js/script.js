@@ -65,7 +65,8 @@ document.addEventListener('DOMContentLoaded', function() {
             score += 10;
         } else {
             feedback.textContent = 'Incorrect!';
-            time -= 10;
+            //Subtracting 5 seconds from wrong answer
+            time -= 5;
         }
 
         questionCount++;
