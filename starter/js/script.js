@@ -5,11 +5,32 @@ var questionTitle = document.querySelector('#question-title');
 var choices = document.querySelector('#choices');
 var questionCount = 0;
 var feedback = document.querySelector("#feedback");
+var initialsInput = document.querySelector("#initials");
+var submitScoreButton = document.querySelector("#submit-score");
+var scoreScreen = document.querySelector("#score-screen");
+var finalScore = document.querySelector("#final-score");
+
+var questionCount = 0;
+var time = 60; // time limit
+var timerInterval;
 
 startButton.addEventListener("click", function() {
     startScreen.classList.add("hide")
     displayQuestion()
 })
+
+function startQuiz() {
+    timerInterval = setInterval(function() {
+        time--;
+        timerEl.textContent = 'Time: ' + time + ' seconds';
+
+        if (time <= 0 || questionCount >= questions.length) {
+            endQuiz();
+        }
+    }, 1000);
+
+    displayQuestion();
+}
 
 function displayQuestion() {
     questionTitle.innerHTML = ''
